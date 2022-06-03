@@ -1,4 +1,4 @@
-# ProgettoTesi
+# ProgettoTesi (IT)
 
 ## Descrizione
 Consideriamo in questo progetto il task di classificare un'immagine (di risoluzione limitata, circa 100x100 pixel) in una tra N classi possibili (con N < 20). In particolare, sperimenteremo inizialmente con un task concreto di classificazione di marche di automobili, considerando come input una foto dell'auto, oppure una foto del logo del marchio. A questo fine, ci appoggeremo su dataset gia' disponibili, quali:
@@ -44,6 +44,8 @@ Tensorflow 2 / Keras
 Scikit-image
 
 OpenCV per l'acquisizione di immagini e lettura di video
+
+# ProgettoTesi (EN)
 
 ## Description
 We consider in this project the task of classifying an image (of limited resolution, about 100x100 pixels) into one of N possible classes (with N < 20). In particular, we will initially experiment with a concrete task of classifying car brands, considering as input a photo of the car, or a photo of the brand logo. To this end, we will rely on already available datasets such as:
