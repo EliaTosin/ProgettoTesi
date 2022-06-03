@@ -29,6 +29,22 @@ Progettare un approccio di data augmentation, e misurarne l'impatto sulle perfor
 
 Sviluppare un dimostratore in grado di elaborare video
 
+## Obbiettivi
+Familiarizzarsi con tecniche di deep learning per l'elaborazione di immagini
+
+Sviluppare e valutare quantitativamente un approccio di classificazione di immagini
+
+Dimostrare l'approccio su video, possibilmente in tempo reale
+
+## Tecnologie
+Python
+
+Tensorflow 2 / Keras
+
+Scikit-image
+
+OpenCV per l'acquisizione di immagini e lettura di video
+
 ## Description
 We consider in this project the task of classifying an image (of limited resolution, about 100x100 pixels) into one of N possible classes (with N < 20). In particular, we will initially experiment with a concrete task of classifying car brands, considering as input a photo of the car, or a photo of the brand logo. To this end, we will rely on already available datasets such as:
 
@@ -58,4 +74,18 @@ Design a data augmentation approach, and measure its impact on classification pe
 
 Develop a demonstrator capable of processing video
 
-Translated with www.DeepL.com/Translator (free version)
+## Objectives
+To familiarise oneself with deep learning techniques for image processing
+
+Develop and quantitatively evaluate an image classification approach
+
+Demonstrate the approach on video, possibly in real time
+
+## Technologies
+Python
+
+Tensorflow 2 / Keras
+
+Scikit-image
+
+OpenCV for image acquisition and video reading
