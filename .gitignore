@@ -3,3 +3,4 @@ trained
 *.pth
 runs
 video
+images
