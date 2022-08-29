@@ -39,7 +39,7 @@ Dimostrare l'approccio su video, possibilmente in tempo reale
 ## Tecnologie
 Python
 
-Tensorflow 2 / Keras
+Pytorch - Tensorboard
 
 Scikit-image
 
@@ -86,7 +86,7 @@ Demonstrate the approach on video, possibly in real time
 ## Technologies
 Python
 
-Tensorflow 2 / Keras
+Pytorch - Tensorboard
 
 Scikit-image
 
