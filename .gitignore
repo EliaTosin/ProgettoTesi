@@ -1,7 +1,6 @@
 data
 trained
-*.pth
 runs
 video
 images
-all_runs
+tutorials
