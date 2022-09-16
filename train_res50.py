@@ -255,7 +255,11 @@ for epoch in range(NUM_OF_EPOCHS):  # ciclo sul dataset
         actual_test_loss = test_loss/len(test_dl)
         accuracy = (100 * test_acc / test_total)
         
-        print(f"[{epoch + 1}] test loss: {(actual_test_loss):.3f} , test acc: {accuracy}")
+        # print(f"[{epoch + 1}] test loss: {(actual_test_loss):.3f} , test acc: {accuracy}")
+        summary = f"[{epoch + 1}] test loss: {(actual_test_loss):.3f} , test acc: {accuracy}\n"
+        with open('metrics.txt', 'a') as f:
+            f.write(summary)
+        print(summary)
         if log_to_tb: # salvataggio test loss e accuratezza in tensorboard
             writer.add_scalar('test loss',
                            actual_test_loss,
@@ -271,7 +275,7 @@ for epoch in range(NUM_OF_EPOCHS):  # ciclo sul dataset
         
 
 print('Fine Addestramento')
-print(f"Miglior acc: {best_accuracy:.2f}")
+print(f"Miglior acc: {best_accuracy:.5f}")
 
 #salvo il modello prodotto alla 25a epoca
 torch.save(net.state_dict(), SAVE_PATH)
