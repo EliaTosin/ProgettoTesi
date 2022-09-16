@@ -1,5 +1,5 @@
 # dimensione del batch
-BATCH_SIZE = 8
+BATCH_SIZE = 32
 # n° di epoche del training
 NUM_OF_EPOCHS = 100
 
@@ -52,6 +52,8 @@ from PIL.features import pilinfo
 import traceback
 import warnings
 warnings.filterwarnings("error")
+
+import imgaug.augmenters as iaa
 
 def getLabelList(path):
     only_dirs = [ name for name in os.listdir(path) if 
@@ -184,7 +186,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
 
 if using_res:
-    net = torch.hub.load('pytorch/vision:v0.10.0', 'resnet18', pretrained=False)
+    net = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
     net.to(device)
     
 in_features = net.fc.in_features
