@@ -1,18 +1,3 @@
-# costants
-BATCH_SIZE = 32
-NUM_OF_EPOCHS = 100
-# boolean if we want to use the augmentation
-USE_AUG = True
-# name fo the saved model
-NET_NAME = 'resnet50_aug'
-
-SAVE_PATH = 'trained/' + NET_NAME + '.pth'
-SAVE_PATH2 = 'trained/' + NET_NAME + '_best.pth'
-# where i can find the dataset
-train_path = 'data/car_brand_logos/Train/'
-test_path = 'data/car_brand_logos/Test/'
-
-#imports
 import torch, torchvision
 from torch.utils.data import Dataset
 from torchvision import datasets
@@ -45,9 +30,27 @@ from PIL.features import pilinfo
 
 import traceback
 import warnings
-warnings.filterwarnings("error")
-
 import imgaug.augmenters as iaa
+
+
+# dimensione del batch
+BATCH_SIZE = 32
+# n° di epoche del training
+NUM_OF_EPOCHS = 100
+
+# nome del file .pth che conterrà la rete allenata e l'eventuale cartella di tensorboard
+NET_NAME = 'resnet50_aug'
+
+# creating trained folder if it doesn't exists
+os.makedirs('trained', exist_ok=True)
+SAVE_PATH = 'trained/' + NET_NAME + '.pth'
+SAVE_PATH2 = 'trained/' + NET_NAME + '_best.pth'
+RUNS_PATH = 'runs/' + NET_NAME
+
+train_path = 'data/car_brand_logos/Train/'
+test_path = 'data/car_brand_logos/Test/'
+
+###############################################
 
 # extract the labels (defined by the folder where the images are)
 def getLabelList(path):
@@ -167,7 +170,7 @@ class CustomImageDataset(Dataset):
 
         return image, label
         
-train_data = CustomImageDataset(path_labels=train_path, transform=ToTensor(), target_transform=ToTensor(), use_aug=USE_AUG)
+train_data = CustomImageDataset(path_labels=train_path, transform=ToTensor(), target_transform=ToTensor(), use_aug=True)
 test_data = CustomImageDataset(path_labels=test_path, transform=ToTensor(), target_transform=ToTensor(), use_aug=False)
 
 print (f'Num of images in train dataset: {train_data.__len__()}')
@@ -183,8 +186,7 @@ print(device)
 # loading the resnet
 net = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
 # editing the output layer to the number of classes
-in_features = net.fc.in_features
-net.fc.out_features = 8
+net.fc = torch.nn.Linear(2048, 8)
 net.to(device)
     
 #test net loading
