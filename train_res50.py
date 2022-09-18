@@ -32,7 +32,6 @@ import traceback
 import warnings
 import imgaug.augmenters as iaa
 
-
 # dimensione del batch
 BATCH_SIZE = 32
 # n° di epoche del training
