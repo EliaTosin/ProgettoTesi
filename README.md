@@ -1,93 +1,44 @@
-# ProgettoTesi (IT)
+# ProgettoTesi
 
 ## Descrizione
-Consideriamo in questo progetto il task di classificare un'immagine (di risoluzione limitata, circa 100x100 pixel) in una tra N classi possibili (con N < 20). In particolare, sperimenteremo inizialmente con un task concreto di classificazione di marche di automobili, considerando come input una foto dell'auto, oppure una foto del logo del marchio. A questo fine, ci appoggeremo su dataset gia' disponibili, quali:
+In questo progetto mi sono approcciato alla reti neurali, sviluppando un classificatore che riconosce i loghi automobilistici. Partendo con il dataset è disponible su <a href="https://www.kaggle.com/datasets/volkandl/car-brand-logos">Kaggle</a>, una nota piattaforma che propone dataset di qualsiasi tipo. Questo nel particolare include foto raccolte da diversi motori di ricerca di 8 differenti marchi.<br>Come linguaggio è stato usato Python in accoppiata con la libreria <a href="https://pytorch.org/">Pytorch</a> per l'utilizzo delle reti neurali e di <a href="https://docs.opencv.org/4.x/d1/dfb/intro.html">OpenCV</a> per il processamento di video. Come modelli usati ho utilizzato inizialmente una LeNet 5 per poi passare ad una ResNet 18, utilizzando sempre augmentation a causa del numero limitato di elementi nel dataset.<br>Per consultare come è stato allenato il modello, le augmentation usate, i test svolti e altro è tutto documentato in questo repository.
 
-https://www.kaggle.com/datasets/prondeau/the-car-connection-picture-dataset
+## Risultati ottenuti
+### Specifiche generali del modello
+Inizio subito mostrando la matrice di confusione del modello ResNet e un grafico a barre che rappresenta le accuratezze per ogni classe.
+![image](https://user-images.githubusercontent.com/72021066/191037398-4763ef21-d095-44a8-b850-bd871178aa21.png)
 
-https://www.kaggle.com/datasets/mayurmahurkar/stanford-car-body-type-data
 
-https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands
+### Esempio di predizioni
+Volendo un'esempio grafico delle predizioni, ecco 24 immagini dal test dataset.
+![image](https://user-images.githubusercontent.com/72021066/191022160-b3b41985-83d9-4baf-b5c7-8d01fe69814e.png)<br>
+In alternativa è possibile consultare una demo live pubblicata su <a href="https://huggingface.co/spaces/EliaT/ClassificatoreTesi">Huggingface</a>.
 
-https://www.kaggle.com/datasets/volkandl/car-brand-logos
+### Predizioni da video
+Spingendomi oltre, ho realizzato dei video in cui vado ad inquadrare dei loghi che ho trovato per farli processare dalla rete neurale. Le riprese sono a puro scopo di testare il modello, non voglio minimamente esporre i proprietari dei veicoli tramite l'inquadratura della targa.
 
-In una fase successiva, potremmo considerare un task aggiuntivo, come la lettura del numero di targa del veicolo.
+#### Logo opel
 
-Il progetto verra' concluso con un dimostratore che, elaborando un video (possibilmente in tempo reale), restituisca le marche rilevate nell'immagine, eventualmente concentrandosi sulla parte centrale del video, dove verra' visualizzato un mirino.
 
-## Compiti
+https://user-images.githubusercontent.com/72021066/191032061-34d6386b-5995-4707-9bea-dfe982fa5678.mp4
 
-Scaricare e familiarizzarsi con i dataset disponibili
 
-Definire un task di classificazione, specificando in modo preciso input e output desiderati
+#### Logo hyundai
 
-Sviluppare un sistema di classificazione di immagini
 
-Impostare una pipeline di valutazione quantitativa delle performance
+https://user-images.githubusercontent.com/72021066/191031600-1d73702e-329a-487e-86f7-7be88f3cc214.mp4
 
-Progettare un approccio di data augmentation, e misurarne l'impatto sulle performance di classificazione
 
-Sviluppare un dimostratore in grado di elaborare video
+#### Logo wolkswagen e opel
 
-## Obbiettivi
-Familiarizzarsi con tecniche di deep learning per l'elaborazione di immagini
 
-Sviluppare e valutare quantitativamente un approccio di classificazione di immagini
+https://user-images.githubusercontent.com/72021066/191032082-7d7a9a22-b3a6-4ace-b360-7c5c5cf7240b.mp4
 
-Dimostrare l'approccio su video, possibilmente in tempo reale
+#### Logo toyota
 
-## Tecnologie
-Python
 
-Pytorch - Tensorboard
+https://user-images.githubusercontent.com/72021066/191034460-38cdbbfa-5b35-4e5b-a780-5ad39e9fdeaa.mp4
 
-Scikit-image
 
-OpenCV per l'acquisizione di immagini e lettura di video
-
-# ProgettoTesi (EN)
-
-## Description
-We consider in this project the task of classifying an image (of limited resolution, about 100x100 pixels) into one of N possible classes (with N < 20). In particular, we will initially experiment with a concrete task of classifying car brands, considering as input a photo of the car, or a photo of the brand logo. To this end, we will rely on already available datasets such as:
-
-https://www.kaggle.com/datasets/prondeau/the-car-connection-picture-dataset
-
-https://www.kaggle.com/datasets/mayurmahurkar/stanford-car-body-type-data
-
-https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands
-
-https://www.kaggle.com/datasets/volkandl/car-brand-logos
-
-At a later stage, we might consider an additional task, such as reading the vehicle's registration number.
-
-The project will be concluded with a demonstrator who, by processing a video (possibly in real time), will return the marks detected in the image, possibly focusing on the central part of the video, where a crosshair will be displayed.
-
-## Tasks
-
-Download and familiarise yourself with the available datasets
-
-Define a classification task, precisely specifying desired inputs and outputs
-
-Develop an image classification system
-
-Set up a quantitative performance evaluation pipeline
-
-Design a data augmentation approach, and measure its impact on classification performance
-
-Develop a demonstrator capable of processing video
-
-## Objectives
-To familiarise oneself with deep learning techniques for image processing
-
-Develop and quantitatively evaluate an image classification approach
-
-Demonstrate the approach on video, possibly in real time
-
-## Technologies
-Python
-
-Pytorch - Tensorboard
-
-Scikit-image
-
-OpenCV for image acquisition and video reading
+## Conclusioni
+Come possiamo notare il modello funziona abbastanza bene nei primi tre video, identificando i loghi.<br>Nel terzo il modello soffre per i riflessi dovuti alla lucentezza della verniciatura (che causano quindi indecisione) e nel quarto video con il logo che presenta dei colori inusuali (andando quindi a sbagliare la predizione).<br><br>Non contento di questi problemi, conclusa la tesi e le sue deadline, ho continuato a portare avanti questo progetto nel branch <a href="https://github.com/EliaTosin/ProgettoTesi/tree/improved">improved</a> di questo repository.
