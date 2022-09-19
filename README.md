@@ -1,93 +1,11 @@
-# ProgettoTesi (IT)
+# ProgettoTesi
 
 ## Descrizione
-Consideriamo in questo progetto il task di classificare un'immagine (di risoluzione limitata, circa 100x100 pixel) in una tra N classi possibili (con N < 20). In particolare, sperimenteremo inizialmente con un task concreto di classificazione di marche di automobili, considerando come input una foto dell'auto, oppure una foto del logo del marchio. A questo fine, ci appoggeremo su dataset gia' disponibili, quali:
+In questo progetto mi sono approcciato alla reti neurali, sviluppando un classificatore che riconosce i loghi automobilistici. Partendo con il dataset è disponible su <a href="https://www.kaggle.com/datasets/volkandl/car-brand-logos">Kaggle</a>, una nota piattaforma che propone dataset di qualsiasi tipo. Questo nel particolare include foto raccolte da diversi motori di ricerca di 8 differenti marchi.<br>Come linguaggio è stato usato Python in accoppiata con la libreria <a href="https://pytorch.org/">Pytorch</a> per l'utilizzo delle reti neurali e di <a href="https://docs.opencv.org/4.x/d1/dfb/intro.html">OpenCV</a> per il processamento di video. Come modelli usati ho utilizzato inizialmente una LeNet 5 per poi passare ad una ResNet 18, utilizzando sempre augmentation a causa del numero limitato di elementi nel dataset.
 
-https://www.kaggle.com/datasets/prondeau/the-car-connection-picture-dataset
+## Risultati ottenuti
+Inizio subito mostrando la matrice di confusione del modello ResNet e un grafico a barre che rappresenta le accuratezze per ogni classe.
+![image](https://user-images.githubusercontent.com/72021066/191021369-8be96b54-8835-4075-8111-418500cf31cf.png)
 
-https://www.kaggle.com/datasets/mayurmahurkar/stanford-car-body-type-data
-
-https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands
-
-https://www.kaggle.com/datasets/volkandl/car-brand-logos
-
-In una fase successiva, potremmo considerare un task aggiuntivo, come la lettura del numero di targa del veicolo.
-
-Il progetto verra' concluso con un dimostratore che, elaborando un video (possibilmente in tempo reale), restituisca le marche rilevate nell'immagine, eventualmente concentrandosi sulla parte centrale del video, dove verra' visualizzato un mirino.
-
-## Compiti
-
-Scaricare e familiarizzarsi con i dataset disponibili
-
-Definire un task di classificazione, specificando in modo preciso input e output desiderati
-
-Sviluppare un sistema di classificazione di immagini
-
-Impostare una pipeline di valutazione quantitativa delle performance
-
-Progettare un approccio di data augmentation, e misurarne l'impatto sulle performance di classificazione
-
-Sviluppare un dimostratore in grado di elaborare video
-
-## Obbiettivi
-Familiarizzarsi con tecniche di deep learning per l'elaborazione di immagini
-
-Sviluppare e valutare quantitativamente un approccio di classificazione di immagini
-
-Dimostrare l'approccio su video, possibilmente in tempo reale
-
-## Tecnologie
-Python
-
-Pytorch - Tensorboard
-
-Scikit-image
-
-OpenCV per l'acquisizione di immagini e lettura di video
-
-# ProgettoTesi (EN)
-
-## Description
-We consider in this project the task of classifying an image (of limited resolution, about 100x100 pixels) into one of N possible classes (with N < 20). In particular, we will initially experiment with a concrete task of classifying car brands, considering as input a photo of the car, or a photo of the brand logo. To this end, we will rely on already available datasets such as:
-
-https://www.kaggle.com/datasets/prondeau/the-car-connection-picture-dataset
-
-https://www.kaggle.com/datasets/mayurmahurkar/stanford-car-body-type-data
-
-https://www.kaggle.com/datasets/yamaerenay/100-images-of-top-50-car-brands
-
-https://www.kaggle.com/datasets/volkandl/car-brand-logos
-
-At a later stage, we might consider an additional task, such as reading the vehicle's registration number.
-
-The project will be concluded with a demonstrator who, by processing a video (possibly in real time), will return the marks detected in the image, possibly focusing on the central part of the video, where a crosshair will be displayed.
-
-## Tasks
-
-Download and familiarise yourself with the available datasets
-
-Define a classification task, precisely specifying desired inputs and outputs
-
-Develop an image classification system
-
-Set up a quantitative performance evaluation pipeline
-
-Design a data augmentation approach, and measure its impact on classification performance
-
-Develop a demonstrator capable of processing video
-
-## Objectives
-To familiarise oneself with deep learning techniques for image processing
-
-Develop and quantitatively evaluate an image classification approach
-
-Demonstrate the approach on video, possibly in real time
-
-## Technologies
-Python
-
-Pytorch - Tensorboard
-
-Scikit-image
-
-OpenCV for image acquisition and video reading
+Volendo un'esempio grafico delle predizioni, ecco 24 immagini dal test dataset.
+![image](https://user-images.githubusercontent.com/72021066/191021839-747345ba-54f6-4c4e-abfa-4ceb398886e2.png)
