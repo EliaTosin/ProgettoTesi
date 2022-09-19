@@ -11,7 +11,8 @@ Inizio subito mostrando la matrice di confusione del modello ResNet e un grafico
 
 ### Esempio di predizioni
 Volendo un'esempio grafico delle predizioni, ecco 24 immagini dal test dataset.
-![image](https://user-images.githubusercontent.com/72021066/191022160-b3b41985-83d9-4baf-b5c7-8d01fe69814e.png)
+![image](https://user-images.githubusercontent.com/72021066/191022160-b3b41985-83d9-4baf-b5c7-8d01fe69814e.png)<br>
+In alternativa è possibile consultare una demo live pubblicata su <a href="https://huggingface.co/spaces/EliaT/ClassificatoreTesi">Huggingface</a>.
 
 ### Predizioni da video
 Spingendomi oltre, ho realizzato dei video in cui vado ad inquadrare dei loghi che ho trovato per farli processare dalla rete neurale. Le riprese sono a puro scopo di testare il modello, non voglio minimamente esporre i proprietari dei veicoli tramite l'inquadratura della targa.
@@ -40,4 +41,4 @@ https://user-images.githubusercontent.com/72021066/191034460-38cdbbfa-5b35-4e5b-
 
 
 ## Conclusioni
-Come possiamo notare il modello funziona abbastanza bene nei primi tre video, identificando i loghi.<br>Nel terzo il modello soffre per i riflessi dovuti alla lucentezza della verniciatura (che causano quindi indecisione) e nel quarto video con il logo che presenta dei colori inusuali (andando quindi a sbagliare la predizione).
+Come possiamo notare il modello funziona abbastanza bene nei primi tre video, identificando i loghi.<br>Nel terzo il modello soffre per i riflessi dovuti alla lucentezza della verniciatura (che causano quindi indecisione) e nel quarto video con il logo che presenta dei colori inusuali (andando quindi a sbagliare la predizione).<br><br>Non contento di questi problemi, conclusa la tesi e le sue deadline, ho continuato a portare avanti questo progetto nel branch <a href="https://github.com/EliaTosin/ProgettoTesi/tree/improved">improved</a> di questo repository.
