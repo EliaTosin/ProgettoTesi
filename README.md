@@ -1,18 +1,18 @@
 # ProgettoTesi
 
 ## Descrizione
-In questo progetto mi sono approcciato alla reti neurali, sviluppando un classificatore che riconosce i loghi automobilistici. Partendo con il dataset è disponible su <a href="https://www.kaggle.com/datasets/volkandl/car-brand-logos">Kaggle</a>, una nota piattaforma che propone dataset di qualsiasi tipo. Questo nel particolare include foto raccolte da diversi motori di ricerca di 8 differenti marchi.<br>Come linguaggio è stato usato Python in accoppiata con la libreria <a href="https://pytorch.org/">Pytorch</a> per l'utilizzo delle reti neurali e di <a href="https://docs.opencv.org/4.x/d1/dfb/intro.html">OpenCV</a> per il processamento di video. Come modelli usati ho utilizzato inizialmente una LeNet 5 per poi passare ad una ResNet 18, utilizzando sempre augmentation a causa del numero limitato di elementi nel dataset.<br>Per consultare come è stato allenato il modello, le augmentation usate, i test svolti e altro è tutto documentato in questo repository.
+Questo progetto è la continuazione del mio progetto di tesi, che ho ampiamente descritto nel <a href="https://github.com/EliaTosin/ProgettoTesi/blob/main/README.md">readme</a> presente nel branch main di questo repository.<br><br>Come modifiche la prima svolta è stata usando un modello più complesso (resnet 50), adattando l'output layer al numero delle classi e tenendo i layer convolutivi preaddestrati sul dataset ImageNet. Poi è stata usata una nuova libreria per le augmentation chiamata <a href="https://imgaug.readthedocs.io/en/latest/">Imgaug</a>, che ha permesso di rielaborare i colori delle immagini. Infine è stato cambiato lo scheduler (CosineAnnealingLR) che in accoppiata con ben 100 epoche di training ha raggiunto una precisione media del 95%.
 
 ## Risultati ottenuti
 ### Specifiche generali del modello
 Inizio subito mostrando la matrice di confusione del modello ResNet e un grafico a barre che rappresenta le accuratezze per ogni classe.
-![image](https://user-images.githubusercontent.com/72021066/191037398-4763ef21-d095-44a8-b850-bd871178aa21.png)
+![image](https://user-images.githubusercontent.com/72021066/191050277-667d6374-98a5-4171-91da-bf800a14e736.png)
 
 
 ### Esempio di predizioni
 Volendo un'esempio grafico delle predizioni, ecco 24 immagini dal test dataset.
-![image](https://user-images.githubusercontent.com/72021066/191022160-b3b41985-83d9-4baf-b5c7-8d01fe69814e.png)<br>
-In alternativa è possibile consultare una demo live pubblicata su <a href="https://huggingface.co/spaces/EliaT/ClassificatoreTesi">Huggingface</a>.
+![image](https://user-images.githubusercontent.com/72021066/191050605-b27367e8-2590-4fc8-acc6-d6cbcec29ee0.png)
+In alternativa è possibile consultare una demo live pubblicata su <a href="https://huggingface.co/spaces/EliaT/NewCarClassifier">Huggingface</a>.
 
 ### Predizioni da video
 Spingendomi oltre, ho realizzato dei video in cui vado ad inquadrare dei loghi che ho trovato per farli processare dalla rete neurale. Le riprese sono a puro scopo di testare il modello, non voglio minimamente esporre i proprietari dei veicoli tramite l'inquadratura della targa.
